@@ -12,6 +12,11 @@ export async function post(this: IExecuteFunctions, index: number): Promise<INod
 	body.channel_id = this.getNodeParameter('channelId', index) as string;
 	body.message = this.getNodeParameter('message', index) as string;
 
+	const rootId = this.getNodeParameter('root_id', index) as string;
+	if (rootId) {
+		body.root_id = rootId;
+	}
+
 	const attachments = this.getNodeParameter('attachments', index, []) as unknown as IAttachment[];
 	// The node does save the fields data differently than the API
 	// expects so fix the data befre we send the request

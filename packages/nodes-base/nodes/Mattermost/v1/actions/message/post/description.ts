@@ -34,6 +34,19 @@ export const messagePostDescription: MessageProperties = [
 		description: 'The text to send',
 	},
 	{
+		displayName: 'Root Post ID',
+		name: 'root_id',
+		type: 'string',
+		default: '',
+		displayOptions: {
+			show: {
+				operation: ['post'],
+				resource: ['message'],
+			},
+		},
+		description: 'The ID of the root post to reply to. If specified, this message will be posted as a threaded reply to the root post.',
+	},
+	{
 		displayName: 'Attachments',
 		name: 'attachments',
 		type: 'collection',
@@ -368,14 +381,6 @@ export const messagePostDescription: MessageProperties = [
 		default: {},
 		description: 'Other options to set',
 		placeholder: 'Add option',
-		options: [
-			{
-				displayName: 'Make Comment',
-				name: 'root_id',
-				type: 'string',
-				default: '',
-				description: 'The post ID to comment on',
-			},
-		],
+		options: [],
 	},
 ];
